@@ -1,16 +1,16 @@
-name: first-workflow
+name: Super-Linter
 
 on: push
 
 jobs:
-  first-workflow:
-    name: first workflow base
-    runs-on: windows-latest
+  super-lint:
+    name: Line code base
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: first-workflow
+      - name: Run Super-Linter
         uses: github/super-line@v3
         env:
             DEFAULT_BRANCH: main
