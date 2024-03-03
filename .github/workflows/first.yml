@@ -1,0 +1,17 @@
+name: first-workflow
+
+on: push
+
+jobs:
+  first-workflow:
+    name: first workflow base
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: first-workflow
+        uses: github/super-line@v3
+        env:
+            DEFAULT_BRANCH: main
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
