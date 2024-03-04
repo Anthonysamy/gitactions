@@ -1,8 +1,15 @@
-name: hello-world
-'on': push
+name: Merge PRs
+on:
+  pull_request:
+    types:
+      - closed
 jobs:
-  my-job:
+  automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Delete merged branch
+        uses: koj-co/delete-merged-action@master
+        with:
+          branches: "!master, !production, *"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
